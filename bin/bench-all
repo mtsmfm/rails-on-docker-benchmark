@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+total_times = Hash.new(0)
+
+system 'docker-sync start'
+
+N = 10
+
+N.times do
+  total_times['docker_sync'] += `docker-compose -f docker-compose.yml -f docker-compose.docker-sync.override.yml run app bin/bench`.to_f
+  total_times['osx with mount bundle_path'] += `docker-compose -f docker-compose.yml -f docker-compose.osxfs-with-mount.override.yml run app bin/bench`.to_f
+  total_times['osx without mount bundle_path'] += `docker-compose -f docker-compose.yml -f docker-compose.osxfs-without-mount.override.yml run app bin/bench`.to_f
+  total_times['local'] += `bin/bench`.to_f
+end
+
+total_times.each do |k, v|
+  puts k
+  puts v / N
+end

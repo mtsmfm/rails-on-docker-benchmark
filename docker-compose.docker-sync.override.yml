@@ -1,0 +1,10 @@
+version: '3.0'
+services:
+  app:
+    environment:
+      BUNDLE_PATH: /app/vendor/docker-sync
+    volumes:
+      - mtsmfm-rails-on-docker-example-sync:/app
+volumes:
+  mtsmfm-rails-on-docker-example-sync:
+    external: true

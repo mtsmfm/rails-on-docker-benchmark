@@ -1,24 +1,35 @@
-# README
+# Rails on Docker benchmark
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Result
 
-Things you may want to cover:
+The following uses `bundle exec rails -T` as the benchmark target.
 
-* Ruby version
+```
+docker_sync
+1.6715239499999999
+osx with mount bundle_path
+1.77106776
+osx without mount bundle_path
+23.5711699
+local
+2.2361538000000003
+```
 
-* System dependencies
+### Machine spec
 
-* Configuration
+- MacBook Pro (13-inch, 2016, Four Thunderbolt 3 Ports)
+- Processor 3.3 GHz Intel Core i7
+- Memory 16 GB 2133 MHz LPDDR3
+- Allow Docker for Mac to use 4 CPUs, 14.0 GiB Memory, 1.0 GiB Swap
+- Docker for Mac Version 18.03.0-ce-rc4-mac57 (23360)
+- docker-sync 0.5.6
 
-* Database creation
+## Requirements
 
-* Database initialization
+- docker
+- docker-compose
+- docker-sync
 
-* How to run the test suite
+## Usage
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run `bin/bench-all`

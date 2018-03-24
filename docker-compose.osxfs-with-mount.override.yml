@@ -1,0 +1,12 @@
+version: '3.0'
+services:
+  app:
+    environment:
+      BUNDLE_PATH: /app/vendor/osxfs-with-mount
+    volumes:
+      - .:/app:cached
+      - vendor:/app/vendor/osxfs-with-mount
+      - tmp:/app/tmp
+volumes:
+  tmp:
+  vendor:

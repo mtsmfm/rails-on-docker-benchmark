@@ -6,11 +6,6 @@ services:
       args:
         RUBY_VERSION: 2.5.0
     volumes:
-      - .:/app:cached
-      - tmp:/app/tmp
       - home:/home/app
-      - vendor:/vendor
 volumes:
   home:
-  tmp:
-  vendor:

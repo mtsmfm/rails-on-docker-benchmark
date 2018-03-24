@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+system('bundle install > /dev/null') || raise
+
+start = Time.now
+system('bundle exec rails -T > /dev/null') || raise
+puts Time.now - start
